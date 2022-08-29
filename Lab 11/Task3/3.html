@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Task 3</title>
+    <style>
+
+        div{
+            width: 850px;
+            height: 800px;
+            margin: 40px auto;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 10px 10px 100px rgb(255, 204, 76) inset;
+            text-align: center;
+
+        }
+        section{
+            width:95%;
+           height:80%;
+           border:2px solid black;
+           text-align:center;
+           border-radius: 10px;
+           padding:5px;
+           margin: 10px auto;
+        }
+
+        #topsection{
+            height: 10%;
+        }
+
+        input[type=button]{
+            background-color: rgb(81, 81, 239);
+            color: white;
+            width: 140px;
+            margin: 20px auto;
+            padding: 8px;
+            border: 1px solid rgb(147, 242, 249);
+            border-radius: 10px;
+            transition: all 2s;
+            margin-left: 40px;
+        }
+
+        input[type=button]:hover{
+            transform: skew(15deg) scale(1.5);
+            
+        }
+
+    </style>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"></script>
+        <script>
+            window.addEventListener('load', function () {
+                mymap = this.document.getElementById('mymap');
+                btn = this.document.getElementById('btn2');
+            });
+            function getlocationdata() {
+                
+                if (navigator.geolocation) {
+                   
+                    navigator.geolocation.getCurrentPosition(getposition, errorhandler);
+                } else {
+                    mymap.innerText = "Please Update Your Browser And Try Again";
+                }
+            }
+
+
+            function getposition(e) {
+
+                var mylocation = new google.maps.LatLng(e.coords.latitude, e.coords.longitude);
+                
+                var specs = { zoom: 15, center: mylocation };
+
+                new google.maps.Map(mymap, specs);
+
+                btn.addEventListener('click' , function() {
+                    mymap.innerText = ""
+
+                    div = document.createElement("div");
+
+                    div.style.boxShadow = '10px 10px 100px rgb(9, 116, 73) inset';
+
+                    div.style.width = "60%";
+
+                    div.style.height = "30%"
+
+                    div.style.margin = "25% auto"
+
+                    lab1 = document.createElement("label");
+                    lab1.innerHTML = "Latitude (degree) <br/>" ;
+                    inp1 = document.createElement("input");
+                    inp1.value = e.coords.latitude ;
+
+
+                    lab2 = document.createElement("label");
+                    lab2.innerHTML = "<br/>Longitude  (degree)<br/>" ;
+                    inp2 = document.createElement("input");
+                    inp2.value = e.coords.longitude ;
+
+                    lab3 = document.createElement("label");
+                    lab3.innerHTML = "<br/>Accuracy<br/>" ;
+                    inp3 = document.createElement("input");
+                    inp3.value = e.coords.accuracy ;
+
+                    lab4 = document.createElement("label");
+                    lab4.innerHTML = "<br/>TimeStamp<br/>" ;
+                    inp4 = document.createElement("input");
+                    inp4.value = Date() ;
+
+                    div.appendChild(lab1);
+                    div.appendChild(inp1);
+                    div.appendChild(lab2);
+                    div.appendChild(inp2);
+                    div.appendChild(lab3);
+                    div.appendChild(inp3);
+                    div.appendChild(lab4);
+                    div.appendChild(inp4);
+
+                    mymap.appendChild(div)
+                    
+                });
+
+            }
+            function errorhandler() {
+                alert("Failed");
+            }
+        </script>
+</head>
+<body>
+
+    <div>
+        
+        <section id="topsection">
+            <input type="button" value="Display Map" onclick="getlocationdata();"/>
+            <input type="button" value="Detailed Information" id="btn2"/>
+        </section>
+
+        <section id="mymap">
+
+        </section>
+
+    </div>
+    
+</body>
+</html>

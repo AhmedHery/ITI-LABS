@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        let myarr=[5,1,8,6];
+        
+        function lab2(op,...nums) {
+        switch (op) {
+            case '-':
+                console.log(` result Subtract Of ${nums} is : ${eval(nums.join(op))}`);
+                break;
+            case '+':
+                console.log(` result Sum Of ${nums} is : ${eval(nums.join(op))}`);
+                break;
+            case '*':
+                console.log(` result Multiplicat Of ${nums} is : ${eval(nums.join(op))}`);
+                break;
+                case '/':
+                console.log(` result Divide Of ${nums} is : ${eval(nums.join(op))}`);
+                break;
+        
+            default:
+                break;
+        }
+    }
+
+    lab2('+',...myarr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

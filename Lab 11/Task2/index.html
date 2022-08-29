@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>img</title>
+    <style>
+
+        div{
+            width: 900px;
+            height: 400px;
+            margin: 40px auto;
+            border: 3px solid yellowgreen;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 10px 10px 100px rgb(58, 150, 61) inset;
+            text-align: center;
+            /* display: flex; */
+
+        }
+        section{
+            width:97%;
+           height:170px;
+           border:2px solid blue;
+           text-align:center;
+           border-radius: 10px;
+           padding:5px;
+           float:left;
+           margin: 8px auto;
+           box-shadow: 10px 10px 100px rgb(58, 150, 61) inset;
+
+        }
+        img{
+            border: 2px solid rgb(86, 13, 154);
+            width:100px;
+            height:100px;
+            margin:10px;
+            transition: all 2s;
+        }
+
+        img:hover{
+            transform: rotate(360deg) scale(2);
+        }
+
+        img:active{
+            transform: scale(1.5) rotate(360deg);
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            
+            let i ;
+            let allimages = this.document.images;
+            for ( i = 0; i < allimages.length; i++) {
+                allimages[i].addEventListener('dragstart', startdrag);
+                allimages[i].addEventListener('dragend', enddrag);
+            }
+
+
+            two = this.document.getElementById('sectiontwo');
+            two.addEventListener('drop', dropped);
+            two.addEventListener('dragover', overdrag);
+            two.addEventListener('dragenter', enterdrag);
+
+            one = this.document.getElementById('sectionone');
+            one.addEventListener('dragleave',leavedrag);
+
+        });
+        count++;
+            if(count == allimages.length){
+                right.innerHTML = "<p> Empty </p>";
+            }
+        function startdrag(e) {
+            
+            e.dataTransfer.setData("myimg", e.target.outerHTML);
+        }
+        function enddrag(e) {
+    
+            e.preventDefault();
+            e.target.style.display = "none";
+        }
+        function dropped(e) {
+            e.preventDefault();
+            two.innerHTML+=e.dataTransfer.getData("myimg");
+            two.style.boxShadow = '10px 10px 100px rgb(45, 216, 232) inset';
+           
+            
+
+            
+        }
+        function overdrag(e) {
+            e.preventDefault();
+        }
+        function enterdrag(e) {
+            e.preventDefault();
+        }
+        function leavedrag(e) {
+            e.preventDefault();
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        
+        <section id="sectionone">
+            <img src="1.jpg"/>
+            <img src="2.jpg"/>
+            <img src="3.jpg"/>
+            <img src="sky.jpg"/>
+            <img src="search.png"/>
+            <img src="tick.png"/>
+        </section>
+
+        <section id="sectiontwo">
+
+        </section>
+    </div>
+    
+</body>
+</html>

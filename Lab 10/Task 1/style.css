@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+#maindiv{
+    width: 80%;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: flex;
+    box-shadow:red 10px 10px 10px , blue 10px 10px 100px inset;
+    transition: all 3s;
+    
+}
+
+
+#maindiv:hover{
+    transform:skew(7deg);
+    transition: all 3s;
+
+}
+
+
+#maindiv:active{
+    transform:rotate(0deg)  scale(.5);
+    transition: all 3s;
+}
+
+
+#secone{
+    width:550px;
+    height:800px;
+    border:4px solid black;
+    border-radius: 10px;
+    margin:10px auto;
+    overflow:auto;
+    resize:both;
+    column-count:3;
+    column-rule:2px solid red;
+    box-shadow:rgb(102, 147, 112) 10px 10px 1000px;  
+}
+
+
+mark{
+    background-color:red;
+    font-weight:bold;
+}
+
+
+mark:hover{
+    box-shadow:yellow 10px 10px 5px;
+    background-color: rgb(126, 62, 62);   
+}
+
+
+mark:active{
+    background-color: greenyellow;
+    transition:all 3s;
+}
+
+
+img{
+    width: 150px;
+    height: 150px;
+    border: 1px solid blue;
+    margin:10px 5px;
+    transition: all 2s;
+    box-shadow:yellow 10px 10px 5px;
+}
+
+
+img:hover{
+    transform:rotate(0deg)  scale(1.1);
+    transition: all 2s;
+}
+
+
+img:active{
+    transform:rotate(0deg)  scale(3);
+    transition: 2s;
+}
+
+
+#sectwo{
+    width:750px;
+    height:800px;
+    border:4px solid blue;
+    border-radius: 10px;
+    margin:10px auto;
+    overflow:auto;
+    resize:both;
+    box-shadow:rgb(125, 16, 69) 10px 10px 100px;  
+}
+
+
+@media all and (orientation:portrait){
+    #maindiv:hover{
+        transform:skew(0deg);
+    }
+
+    img{
+        border: 1px solid blue;
+        transform:rotate(-25deg)  scale(1);
+        transition: 4s;
+
+    }
+
+    img:active{
+        border: 1px dashed blue;
+        transform:rotate(0deg)  scale(1);
+        transition: 4s;
+        box-shadow:purple 10px 10px 5px;
+        z-index: 5;
+    }
+
+    img:hover{
+        border: 1px dashed black;
+        transform:rotate(0deg)  scale(1.5);
+        transition: 4s;
+        box-shadow:purple 10px 10px 5px;
+    }
+
+
+
+}

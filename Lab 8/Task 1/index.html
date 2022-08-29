@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        let myarr =[1,7,13,2,5,8,50,60,82,36,12,99,56,45];
+
+
+        let ascending = myarr.sort((a, b) =>  a - b);
+            console.log(ascending);
+
+
+        let desending = myarr.sort((a, b) =>  b - a);
+            console.log(desending);
+
+
+        myarr.filter(a => a > 50 )
+           .forEach(a => console.log(a));
+
+
+        let max = Math.max(...myarr);
+           console.log(max);
+
+
+        let min = Math.min(...myarr);
+           console.log(min);
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

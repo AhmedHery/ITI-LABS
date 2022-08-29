@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+
+    <style>
+        #main{
+            margin: 100px auto;
+            background-color: rgb(45, 7, 236);
+            border: 2px solid purple;
+            border-radius: 20px;
+            width: 1000px;
+            height: 200px;
+        }
+
+        section{
+            width: 45%;
+            height: 90%;
+            margin: 10px auto;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 10px 0;
+            text-align: left;
+            
+            
+        }
+        section div{
+            display: flex;  
+            margin-left: 50px ;          
+        }
+        #add{
+            float: left;
+            box-shadow: 10px 10px 100px rgb(75, 24, 59) inset;
+        }
+        #mul{
+            float: right;
+            box-shadow: 10px 10px 100px rgb(228, 112, 22) inset;
+
+        }
+
+        h3{
+            margin-top: 40px;
+            margin-left: 40px;
+        }
+
+        input{
+            width: 100px;
+            margin: 0 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div id="main">
+        <section id="mul">
+            <h3>Multiplication 2 Numbers</h3>
+            <div>
+                <input onchange="mul()" type="number" id="mulnum3">
+                <p>*</p>
+                <input onchange="mul()" type="number" id="mulnum4">
+                <p>=</p>
+                <p id="mulresult"></p>
+            </div>
+        </section>
+        <section id="add">
+            <h3>Addition 2 Numbers</h3>
+            <div>
+            <input onchange="add();" type="number" id="addnum1">
+            <p>+</p>
+            <input onchange="add();" type="number" id="addnum2">
+            <p>=</p>
+            <p id="addresult"></p>
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <script>
+        addnum1 =document.getElementById('addnum1');
+        addnum2 =document.getElementById('addnum2');
+        addres = document.getElementById('addresult');
+        mulnum3 =document.getElementById('mulnum3');
+        mulnum4 =document.getElementById('mulnum4');
+        mulres = document.getElementById('mulresult');
+
+
+        function add(){
+            resultofadd = Number(addnum1.value) + Number(addnum2.value)
+            addres.innerText = resultofadd;
+        };
+
+        function mul(){
+            resultofmul = Number(mulnum3.value) * Number(mulnum4.value)
+            mulres.innerText = resultofmul;
+        };
+        
+        
+    </script>
+    
+</body>
+</html>

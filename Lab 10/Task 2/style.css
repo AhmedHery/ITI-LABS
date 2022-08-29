@@ -1,0 +1,112 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+ul{
+    display:flex;
+    
+    min-height:10vh;
+    justify-content:space-evenly;
+    align-items:center;
+}
+ul>li{
+    list-style:none;
+}
+ul>li>a{
+    text-decoration:none;
+    font:bold 15px tahoma;
+    color:rgb(169 10 10);
+}
+.cover{
+    background-image:url(images/laptop_top.jpg);
+    height:90vh;
+    background-position:center;
+    background-size:cover;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.cover>h2{
+    color:white;
+}
+.cover>button{
+    margin-top:3rem;
+    width:10rem;
+    height:5rem;
+    border:none;
+    outline:none;
+    border-radius:20px;
+}
+
+#sectwo{
+    background-color: whitesmoke;
+    margin: 25px auto;
+    display: flex;
+}
+
+img{
+    width: 45%;
+}
+
+.ul{
+    display: inline;
+    margin: 15px auto ;
+}
+
+.li{
+    margin-bottom:118% ;
+    text-align: center;
+    color: brown;
+
+}
+
+.li:hover{
+    color: blue;
+    text-decoration: underline;
+}
+
+h3{
+    color: black;
+    font-size: 25px;
+}
+
+.div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.box{
+    width: 450px;
+    height: 350px;
+}
+
+@media all and (orientation:portrait){
+    #sectwo{
+        display: block;
+    }
+    .li{
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    img{
+        width: 100%;
+    }
+    .div{
+        display: block;
+    }
+    .box1{
+        width: 200px;
+        margin: 15px auto;
+    }
+    .box2{
+        width: 200px;
+        margin: 15px auto;
+    }
+    .box3{
+        width: 200px;
+        margin: 15px auto;
+    }
+
+}

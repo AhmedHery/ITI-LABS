@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            user-select: none;
+        }
+        #toolbar{
+            position: fixed;
+            top: 0;
+            background-color: darkgray;
+            color: white;
+            font: 15px bold ;
+            width: 100%;
+            padding: 10px;
+            /* display: -webkit-box;
+            -webkit-box-align: center; */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        #radiusbar{
+            width: 200px;
+            padding: 10px;
+        }
+        .icredecre,#radiusvalue,#savebtn{
+            padding: 8px 7px;
+            border-radius: 50%;
+            margin-left: 10px;
+            box-shadow: blue 5px 5px 10px inset,purple -5px -5px 10px inset;
+        }
+        .icredecre:hover,#savebtn:hover{
+            cursor: pointer;
+            box-shadow: yellow 5px 5px 10px inset,green -5px -5px 10px inset;
+        }
+        #savebar{
+            width: 300px;
+            margin-left: 30px;
+        }
+        #savebtn{
+            margin-left: 250px;
+        }
+        #colorsbar{
+            width: 600px;
+            margin-left: 50px;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .colors{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+        .active{
+            border: 2px solid white;
+        }
+    </style>
+    <script>
+        window.addEventListener('load',doitfirst);
+        function doitfirst() {
+            mycanvas = document.getElementById('mycanvas');
+            mycontext = mycanvas.getContext('2d');
+            mycanvas.width = window.innerWidth;
+            mycanvas.height = window.innerHeight;
+            // mycanvas.addEventListener('mousedown',drawcircle);
+            isdrawable = false;
+            mycanvas.addEventListener('mousemove',drawcircle);
+            mycanvas.addEventListener('mousedown',enabledrawing);
+            mycanvas.addEventListener('mouseup',disabledrawing);
+
+
+            radius = 10 ;
+            incre = document.getElementById('incre');
+            decre = document.getElementById('decre');
+            radiusvalue = document.getElementById('radiusvalue');
+            incre.addEventListener('click',increaseradius);
+            decre.addEventListener('click',decreaseradius);
+
+            // allcolors = document.querySelectorAll('.colors');
+            // for (var i = 0; i < allcolors.length; i++) {
+            //     allcolors[i].addEventListener('click',changecolor);
+            //     if(allcolors[i].style.backgroundcolor==localStorage.getItem('selectedcolor'));
+            //     {
+            //         allcolors[i].className+='active';
+            //     }
+                
+            // }
+
+            colorsbar = document.getElementById('colorsbar');
+            allcolors = ['red','blue', 'green', 'yellow','cyan', 'browm'];
+             for (var i = 0; i <allcolors.length; i++)
+              { 
+                createddiv=document.createElement('div');
+                createddiv.style.backgroundColor = allcolors[i];
+                createddiv.addEventListener('click', changecolor);
+                createddiv.className='colors';
+                if(allcolors[i]==localstorage.getItem('selectedcolors')) {
+                createddiv.className +active ;
+                mycontext.fillstyle = allcolors[i];}
+                colorsbar.appendChild(createddiv);
+        }}
+        function changecolor(e) {
+            oldselectedcolor = document.getElementsByClassName('active')[0];
+            if(oldselectedcolor!=null)
+            oldselectedcolor.className = 'colors'
+            newclickdone = e.target;
+            newclickdone.className += 'active';
+            mycontext.fillStyle = newclickdone.style.backgroundcolor;
+            localStorage.setItem('selectedcolor',newclickdone.style.backgroundcolor);
+        }
+        function increaseradius(){
+            radius++;
+            checkradius(radius);
+        }
+        function decreaseradius(){
+            radius++;
+            checkradius(radius);
+        }
+        function checkradius(nradius) {
+            if (nradius>50) 
+                nradius=50;
+            else if (nradius<10)
+            nradius=10;
+            radius=nradius;
+            radiusvalue.innerText=radius;
+        }
+        function enabledrawing() {
+            isdrawable=true;
+        }
+        function disabledrawing() {
+            isdrawable=false;
+        }
+        function drawcircle(e) {
+            if (isdrawable) {
+                mycontext.beginPath();
+                mycontext.arc(e.clientX,e.clientY,10,0,Math.PI*2);
+                mycontext.fill();
+                mycontext.closePath();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="toolbar">
+        <div id="radiusbar">
+            <label>Redius</label>
+            <span id="rediusvalue">10</span>
+            <span id="incre" class="icredecre">+</span>
+            <span id="decre" class="icredecre">-</span>
+        </div>
+        <div id="savebar">
+            <span id="savebtn">Save</span>
+        </div>
+        <div id="colorsbar">
+            <!-- <div class="colors" style="background-color: red;"></div>
+            <div class="colors" style="background-color: red;"></div>
+            <div class="colors" style="background-color: red;"></div>
+            <div class="colors" style="background-color: red;"></div> -->
+        </div>
+        <canvas id="mycanvas" style="display:block;">
+        Sorry, Update Your Browser and Try Again.</canvas>
+    </div>
+</body>
+</html>

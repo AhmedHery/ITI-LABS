@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+   <style>
+        div{
+            width: 1000px;
+            height: 600px;
+            margin: 40px auto;
+            border: 3px solid yellowgreen;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+        }
+        #vids{
+            width: 20%;
+            height: 100%;
+            float: left;
+            box-shadow: 10px 10px 100px rgb(58, 150, 61) inset;
+            border: 3px solid black;
+            border-radius: 10px;
+            text-align: center;
+            
+        }
+
+        #vids #items{
+            background-color: white;
+            width: 80%;
+            height: 95%;
+            margin: 10px auto;
+            border: 1px solid yellowgreen;
+        }
+
+        #vids #items:hover{
+            background-color: rgb(88, 88, 219);
+
+        }
+
+        #vids button{
+            border: 3px solid rgb(5, 97, 172);
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
+            width: 90px;
+            margin: 15px 0;
+            transition: all 2s;
+        }
+        #vids button:hover{
+            cursor: pointer;
+            transform: rotate(360deg);
+            background-color: violet;
+        }
+
+        #vids button:focus{
+            background-color: purple;
+            color: white;
+        }
+
+        #vidsec{
+            width: 70%;
+            flex-grow: 1;
+            margin: 5px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height: 99%;
+            box-shadow: 10px 10px 100px rgb(58, 150, 61) inset;
+            border: 3px solid black;
+            border-radius: 10px;
+            text-align: center;   
+        }
+
+        #vidsec video{
+            margin: 10px auto;
+            border-radius: 10%;
+            width : 50% ; 
+            height : 50%;
+            transition: 2s;
+        }
+
+        #vidsec video:active{
+            transform: scale(2);
+        }
+        
+    </style>
+    <script>
+        
+        window.addEventListener('load', function () {
+            
+            myvid = document.getElementById('myvid');
+
+            
+            
+
+            myvid.addEventListener('click',function() {
+                if (myvid.muted) {
+                myvid.muted = false;
+            }
+                if (myvid.paused) {
+                myvid.play();
+            } else {
+                myvid.pause();
+                
+            }
+            });
+
+            myvid.addEventListener('dblclick' , function() {
+                myvid.requestFullscreen();
+            });
+
+            let arr = ['VivaCut_video_1650452444349_HD.mp4','VivaCut_video_1650452444349_HD.mp4','VivaCut_video_1650452444349_HD.mp4','VivaCut_video_1650452444349_HD.mp4','VivaCut_video_1650452444349_HD.mp4','VivaCut_video_1650452444349_HD.mp4','VivaCut_video_1650452444349_HD.mp4','VivaCut_video_1650452444349_HD.mp4']
+
+            for(let i = 0 ; i<arr.length ; i++){
+                videobtn = document.getElementsByTagName('button')[i];
+                videobtn.addEventListener('click',function() {
+                    myvid.src = arr[i];
+                });
+            }
+
+
+        });
+        
+        
+    </script>
+
+ 
+
+
+</head>
+<body>
+
+
+    <div class="main">
+        <section id="vids">
+            <section id="items">
+                <button>Video 1</button><br>
+                <button>Video 2</button><br>
+                <button>Video 3</button><br>
+                <button>Video 4</button><br>
+                <button>Video 5</button><br>
+                <button>Video 6</button><br>
+                <button>Video 7</button><br>
+                <button>Video 8</button>
+            </section>
+        </section>
+        <section id="vidsec">
+            <video src="VivaCut_video_1650452444349_HD.mp4" id="myvid" muted autoplay></video>
+        </section>
+    </div>
+    
+</body>
+</html>
