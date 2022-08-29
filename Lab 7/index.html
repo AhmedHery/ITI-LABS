@@ -1,0 +1,463 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <script>
+
+        window.addEventListener('load', function () {
+            usertxt = this.document.getElementById('usertxt'); 
+            usertxt.focus();
+            country = this.document.getElementById('country');
+            zip = this.document.getElementById('zip');
+            email = this.document.getElementById('email');
+            hoppy = this.document.getElementById('hoppy');
+           
+            usertxt.addEventListener('blur', function () {
+                if (!usernamevalid()) {
+                    
+                    usertxt.focus();
+                    usertxt.select();
+                    usertxt.style.border = "2px solid red";
+                } else {
+                   
+                    usertxt.style.border = "2px solid green";
+                    country.focus();
+                }
+            });
+
+
+
+
+            country.addEventListener('blur', function () {
+                
+                if (!countryvalid()) {
+                    
+                    country.focus();
+                    country.select();
+                    country.style.border = "2px solid red";
+                } else {
+                    
+                    country.style.border = "2px solid green";
+                }
+            });
+
+            
+            country.addEventListener('change', function (o) {
+                
+                if ((o.target.value) == "egypt" ) {
+                    zip.value = "1111" ;
+                } 
+                else if((o.target.value) == "tunsiya")
+                {
+                    zip.value ="2222"
+                } 
+                else if((o.target.value) == "moraco")
+                {
+                    zip.value ="3333"
+                }
+
+                console.log(o.target.value)
+            });
+
+            email.addEventListener('blur', function () {
+                
+                if (!emailvalid()) {
+                    
+                    email.focus();
+                    email.select();
+                    email.style.border = "2px solid red";
+                } else {
+                    
+                    email.style.border = "2px solid green";
+                }
+            });
+
+            this.document.forms[0].addEventListener('submit', function (e) {
+                bol = false ;
+                for(i=0 ; i<hoppy.length ; i++){
+                    if(hoppy[i].checked){
+                        bol = true;
+                    }
+                }
+                if (bol==false) {   
+                    e.preventDefault();       
+                    alert("You Should choose one hoppy");        
+                }else{submit()}
+            });
+
+
+            this.document.forms[0].addEventListener('submit', function (e) {
+                if (!(usernamevalid() && countryvalid() && emailvalid() && hoppyvalid())) {
+                    e.preventDefault();
+                }
+            });
+
+            this.document.forms[0].addEventListener('reset', function (e) {
+                if (!confirm("Are You Sure ?")) {
+                    e.preventDefault();
+                }
+
+            });
+
+        });
+
+        function usernamevalid(){
+            var usernamepattern = /^[A-Za-z]{4,6}$/;
+            return usertxt.value.match(usernamepattern);
+        }
+        function countryvalid() {
+            var countrypattern = /^[Egypt,Tunsiya,Moraco]/;
+            return countrypattern.test(country.value);
+        }
+        function emailvalid() {
+            var emailpattern = /[@gmail.com]$/;
+            return emailpattern.test(email.value);
+        }
+        
+
+
+
+    </script>
+</head>
+<body>
+    <form method="get" action="test.html">
+        <table>
+            <tr>
+                <td>Name :</td>
+                <td colspan="4"><input type="text" name="name" id="usertxt" /></td>
+            </tr>
+            <tr>
+                <td>Country :</td>
+                <td colspan="4">
+                    <select name="coun" id="country" onmousedown="this.value='';" onchange="jsFunction(this.value);">
+                        <option New value="egypt">Egypt</option>
+                        <option value="tunsiya">Tunsiya</option>
+                        <option value="moraco">Moraco</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Zip</td>
+                <td colspan="4"><input type="text"  name="zip" id="zip" /></td>
+            </tr>
+            <tr>
+                <td>E_mail :</td>
+                <td colspan="4"><input type="email" name="email" id="email" /></td>
+            </tr>
+            <tr>
+                <td>Hoppies</td>
+                <td><input type="checkbox" name="writing" id="hoppy">
+                <label>Writing</label></td>
+                <td><input type="checkbox" name="reading" id="hoppy">
+                    <label>Reading</label></td>
+                    <td><input type="checkbox" name="swimming" id="hoppy">
+                        <label>Swimming</label></td>
+                        <td><input type="checkbox" name="sleeping" id="hoppy">
+                            <label>Sleeping</label></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Register" /></td>
+                <td><input type="reset" value="Clear" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        //form validation
+        //1-Name must be required
+        //2-Name accept numbers and char (u need to use RegEX)==>search(match,test)==>string object 
+        //3-USer accept only numbers ,min 5 ,Max 10
+        //4-Country ==>must be choosen
+        //5- EMail must be email format
+        //6-password must be matched with Confirm pasword and Min 10 Mx 20 conatin (numbers ,chars and special chars)
+        //7-gender==>must be choose 
+        //8-checked box of languages must be checked at least two languages
+        //9==>input blur (span for validation message)
+        //10==>fir all valdiation at submit button  call checAll(return true if all validation is correct) false if at least one is not corrected
+        //blur,keypress,keydown,foucs,select ,css error span ==>red ,""
+        //never ever use html5 attributesssssssssssss
+
+
+
+        
+        window.addEventListener('load', function () {
+            usertxt = this.document.getElementById('usertxt'); 
+            usertxt.focus();
+            userid = this.document.getElementById('userid');
+            country = this.document.getElementById('country');
+            email = this.document.getElementById('email');
+            bass = this.document.getElementById('bass');
+            cbass = this.document.getElementById('cbass');
+           
+            usertxt.addEventListener('blur', function () {
+                if (!usernamevalid()) {
+                    
+                    usertxt.focus();
+                    usertxt.select();
+                    usertxt.style.border = "2px solid red";
+                } else {
+                   
+                    usertxt.style.border = "2px solid green";
+                    userid.focus();
+                }
+            });
+
+            userid.addEventListener('blur', function () {
+                if (!useridvalid()) {
+                    
+                    userid.focus();
+                    userid.select();
+                    userid.style.border = "2px solid red";
+                } else {
+                   
+                    userid.style.border = "2px solid green";
+                    country.focus();
+                }
+            });
+
+
+
+
+            country.addEventListener('blur', function () {
+                
+                if (!countryvalid()) {
+                    
+                    country.focus();
+                    country.select();
+                    country.style.border = "2px solid red";
+                } else {
+                    
+                    country.style.border = "2px solid green";
+                    email.focus();
+                }
+            });
+
+
+            email.addEventListener('blur', function () {
+                
+                if (!emailvalid()) {
+                    
+                    email.focus();
+                    email.select();
+                    email.style.border = "2px solid red";
+                } else {
+                    
+                    email.style.border = "2px solid green";
+                    bass.focus();
+                }
+            });
+            
+            bass.addEventListener('blur', function () {
+                
+                if (!bassvalid()) {
+                    
+                    bass.focus();
+                    bass.select();
+                    bass.style.border = "2px solid red";
+                } else {
+                    
+                    bass.style.border = "2px solid green";
+                }
+            });
+
+            cbass.addEventListener('blur', function () {
+                
+                if (!cbassvalid()) {
+                    
+                    cbass.focus();
+                    cbass.select();
+                    cbass.style.border = "2px solid red";
+                } else {
+                    
+                    cbass.style.border = "2px solid green";
+                }
+            });
+
+            this.document.forms[0].addEventListener('submit', function (e) {
+                bol = false ;
+                for(i=0 ; i<language.length ; i++){
+                    if(language[i].checked){
+                        bol = true;
+                    }
+                }
+                if (bol==false) {   
+                    e.preventDefault();       
+                    alert("You Should choose one language");        
+                }else{submit()}
+            });
+
+
+            this.document.forms[0].addEventListener('submit', function (e) {
+                if (!(usernamevalid() && useridvalid() && countryvalid() && emailvalid() && bassvalid() &&languagevalid())) {
+                    e.preventDefault();
+                }
+            });
+
+            this.document.forms[0].addEventListener('reset', function (e) {
+                if (!confirm("Are You Sure ?")) {
+                    e.preventDefault();
+                }
+
+            });
+
+        });
+
+        function usernamevalid(){
+            var usernamepattern = /^[A-Za-z1-100]/;
+            return usertxt.value.match(usernamepattern);
+        }
+        function useridvalid(){
+            var useridpattern = /^[1-100]/;
+            return userid.value.match(useridpattern);
+        }
+        function emailvalid() {
+            var emailpattern = /[@gmail.com]$/;
+            return emailpattern.test(email.value);
+        }
+        function bassvalid() {
+            var basspattern = /^[1-100]/;
+            return basspattern.test(bass.value);
+        }
+
+
+
+
+
+
+    </script>
+    <title>JavaScript Form Validation using a sample registration form</title>
+    <style type="text/css">
+        input, select, table, textarea {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #b7b7b7;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            margin-left: 5px;
+            font: normal 16px/normal "Times New Roman", Times, serif;
+            color: rgba(0,142,198,1);
+            -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+        }
+
+        th {
+            border: none;
+            -webkit-border-radius: 3px 0 0 3px;
+            border-radius: 3px 0 0 3px;
+            font: normal normal bold 19px/2 Verdana, Geneva, sans-serif;
+            color: black;
+            background: rgba(255,221,221,1);
+            text-align: left;
+            width: 100px;
+        }
+
+        span {
+            font: normal normal bold 14px/2 Verdana, Geneva, sans-serif;
+            color: red;
+        }
+
+        .Error {
+            background: rgba(255,221,221,1);
+        }
+
+        .Espan {
+            font: normal normal bold 8px/2 Verdana, Geneva, sans-serif;
+            color: red;
+        }
+    </style>
+
+
+</head>
+<script>
+    function  checkAll(){
+          alert("check controls data");
+          //all controls checkd 
+      }
+  </script>
+<body>
+    <form name='registration'  >
+        <table>
+            <tr>
+                <h1>Registration Form</h1>
+            </tr>
+            
+            <tr>
+                <th><label for="username">Name:</label></th>
+                <td><input type="text" id="usertxt" name="username" size="50" />
+                    <span id="uname" class="espan" style="display:none">UserName can not be empty</span></td>
+            </tr>
+            <tr>
+                <th><label for="userid">User id:</label></th>
+                <td>
+                    <input type="text" id="userid" name="userid" size="12" maxlength="10" />
+                    <span id="uid" class"espan" style="display:none">User Name must numbers</span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="country">Country:</label></th>
+                <td>
+                    <select id="country" name="country" onch>
+                        <option selected="" value="Default">(Please select a country)</option>
+                        <option value="112233">Egypt</option>
+                        <option value="223344">KSA</option>
+                        <option value="334455">UAE</option>
+                        <option value="445566">Kuwait</option>
+                    </select>
+                    <span id="countryId"></span>
+                    <span id="counteryVa" class"espan" style="display:none">Counter must be choose</span>
+                </td>
+            </tr>   
+            <tr>
+                <th><label for="email">Email:</label></th>
+                <td><input type="text" id="email" name="email" size="50" /></td>
+            </tr>
+            <tr>
+                <th><label for="passid">Password:</label></th>
+                <td><input type="password" id="bass" min="10" max="20" name="passid" size="12" /></td>
+            </tr>
+            <tr>
+                <th><label for="passconfirm">Confirm Password:</label></th>
+                <td><input type="password" id="cbass" name="passconfirm" size="12" /></td>
+            </tr>
+            <tr>
+                <th><label id="gender">Sex:</label></th>
+                <td>
+                    <input type="radio" name="sex" value="Male" checked>Male</input>
+                    <input type="radio" name="sex" value="Female">Female</input>
+                </td>
+            </tr>
+            <tr>
+                <th><label>Languages:</label></th>
+                <td>
+                    <input type="checkbox" id="language" name="Uint" value="JavaScript" checked>JavaScript</input>
+                    <input type="checkbox" id="language" name="Uint" value="C#">C#</input>
+                    <input type="checkbox" id="language" name="Uint" value="SQL Server">SQL Server</input>
+                    <input type="checkbox" id="language" name="Uint" value="ASP.Net">ASP.Net</input>
+                </td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="submit" value="Submit" onclick="checkAll"/>
+                    <input type="reset" name="reset" value="Reset"/>
+                    
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

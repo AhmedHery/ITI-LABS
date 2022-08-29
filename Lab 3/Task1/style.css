@@ -1,0 +1,33 @@
+.content{
+    margin: 45px;
+    background-color: white;
+}
+
+.one,.two{
+    text-align: center;
+    border: 2px gray solid ;
+    padding: 35px;
+    margin: 35px; 
+    background-color: salmon;
+}
+
+span{
+    font-size: 50px;
+    font-family: cursive;
+}
+
+.three{
+    border: 2px gray solid ;
+    padding: 35px;
+    margin: 35px; 
+    background-color: salmon;
+}
+
+footer{
+    text-align: center;
+    border: 2px gray solid ;
+    padding: 35px;
+    margin: 35px;    
+    background-color: salmon;
+}
+

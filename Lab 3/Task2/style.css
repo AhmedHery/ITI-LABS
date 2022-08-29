@@ -1,0 +1,33 @@
+*{
+    text-align: center;
+}
+
+img{
+    margin: 55px;
+}
+
+#pone,h1{
+    color: brown;
+    font-family:monospace;   
+}
+
+p{
+    color: coral;
+}
+
+b{
+    color:brown;
+}
+
+
+table{
+    margin: 35px auto;
+}
+
+h2,div{
+    font-family: cursive;
+}
+
+h2{
+    color: rgb(153, 62, 27);
+}

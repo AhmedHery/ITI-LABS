@@ -1,0 +1,32 @@
+img{
+    width: 100%;
+    height: 100px;
+}
+
+.img1{
+    width: 3%;
+    height: 6%;
+}
+
+.img2{
+    width: 10%;
+    height: 10%;
+}
+
+.select1{
+    padding-right: 230px ;
+}
+
+.select2{
+    margin-left: 50px;
+}
+
+.pp{
+    padding-left:50px;
+}
+
+div{
+    width: 100%;
+    background-color: greenyellow;
+    padding: 25px;
+}

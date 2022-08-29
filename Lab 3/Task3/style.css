@@ -1,0 +1,44 @@
+*{
+    text-align: center;
+    font-size: 25px;
+}
+
+table{
+    margin: 0 auto;
+}
+
+.one{
+    border: 2px solid;
+    padding: 5px 40px;
+    color: white;
+}
+
+.face{
+    background-color: blue;
+}
+
+.twi{
+    background-color: rgb(63, 63, 101);
+}
+
+div{
+    margin: 25px 0;
+}
+
+.two{
+    border: 2px solid;
+    padding: 5px 100px;   
+    margin: 10px;
+}
+
+.three{
+    border: 2px solid;
+    padding: 5px 50px;   
+    margin: 10px;
+    color: white;
+    background-color: blue;
+}
+
+a{
+    text-decoration: none;
+}

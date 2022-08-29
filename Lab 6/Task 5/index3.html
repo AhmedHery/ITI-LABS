@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    
+<script>
+    var age = location.href.substring(location.href.indexOf("?") + 1).split("&")[1].split("=")[1];
+    var name = location.href.substring(location.href.indexOf("?") + 1).split("&")[0].split("=")[1];
+    var color = location.href.substring(location.href.indexOf("?") + 1).split("&")[3].split("=")[1];
+
+    var gender = location.href.substring(location.href.indexOf("?") + 1).split("&")[2].split("=")[1];
+
+    if(gender == "female"){
+        document.write("<img src='https://th.bing.com/th/id/OIP.yd8Y3FHtj0y9aNuBRHaNrAHaH_?pid=ImgDet&w=1000&h=1080&rs=1 width='200''>")
+    }else
+    {document.write("<img src='https://th.bing.com/th/id/OIP.1ytz2xyLOpybt_MlaaWZzQHaG6?pid=ImgDet&rs=1'>")}
+
+    document.write("Welcome " + "<font color='"+color+"'"+">"+name+"</font>"+age);
+</script>
+</body>
+</html> 

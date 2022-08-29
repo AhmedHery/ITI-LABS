@@ -1,0 +1,33 @@
+table{
+    border: 3px solid;
+    margin: 35px auto;
+}
+
+b{
+    padding: 20px;
+}
+
+a{
+    text-align: center;
+    color: black;
+}
+
+th{
+    background-color: rgb(122, 122, 237);
+}
+
+.one{
+    background-color: white;
+}
+
+.two{
+    background-color: rgb(210, 210, 242);
+}
+
+.three{
+    background-color: rgb(208, 208, 224);
+}
+
+td{
+    padding: 10px;
+}

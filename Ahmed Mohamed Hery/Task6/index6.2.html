@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>Task 6js</title>
+    </head>
+    <body>
+       <script>
+        alert("you must enter the array size");
+
+        var arrsize = prompt("Enter array size");
+
+        var arr = new Array();
+
+        alert("Enter Array Elements");
+
+        for(var i = 0 ; i < Number(arrsize) ; i++ ){
+    
+        var index = prompt("Enter index" + (i) );
+
+        if(isNaN(Number(index))){
+        var index = prompt("Enter index" + (i+1) );
+
+          }else{
+        arr[i] = index ;
+        }   
+
+       }
+
+    
+    
+
+        alert("You Must Choose From a To h or confirm");
+    
+            var choose = prompt("Enter Char" );
+
+        
+        
+
+        switch (choose) {
+            case "confirm":
+                document.write(arr);
+                if(confirm("Do you want rebly?")){
+                   break;
+                } var choose = prompt("Enter Char" );
+                break;
+
+            case "a":
+            var a = arr;
+            document.write(a);
+                break;
+
+            case "b":
+            var b = arr.sort(function(a, b){return a - b});
+            document.write(b);
+                break;
+
+            case "c":
+            var c = arr.sort(function(a, b){return b - a});
+            document.write(c);
+                break;
+
+            case "d":  
+            var d = arr.reverse();
+            document.write(d);
+                break;
+
+           case "e":
+           var result = arr.filter(function isEvan(value) { 
+           if (value % 2 == 0) return true;
+           else return false;
+           });
+           if(result.length==0){
+            document.write("No Number Even")
+           }else document.write(result)
+                break;  
+
+            case "f":  
+            alert("You Must Enter a Num");
+            var num =prompt("Enter Num");
+            var num1=Number(num);
+            var result2 = arr(function isDiv(value) { 
+           if (value % num1 == 0) return true;
+           else return false;
+            })
+            if(result.length==0){
+            document.write("No Array")
+           }else document.write(result2)
+                break;
+
+                case "g":
+                    var myarr = new Array();
+                    for(var i = 0; i < arr.length ; i++){
+                        myarr[i] = Number(arr[i]) * 0.03  ;
+                    }
+                    document.write(myarr);
+                    break;
+
+
+                case "h":
+                    var string ="***";
+                    document.write(string.concat(myarr));
+                    break;
+
+        
+            default:
+                break;
+        }
+
+       </script>
+    </body>
+</html>

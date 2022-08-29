@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Task1</title>
+</head>
+<body>
+
+    <input type="text" >
+    <input type="button" onclick="addfun()" value="Add">
+    <table>
+        <tbody>
+            <tr>
+                <th>Num</th>
+                <th>News</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="button" onclick="Counter()" value="Row Count">
+    <p></p>
+
+    <script>
+        i=0
+        function addfun(){
+
+            
+            i++ ;
+
+            var table = document.getElementsByTagName("table")[0];
+            var tbody = document.getElementsByTagName("tbody")[0];
+            var tr = document.createElement("tr");
+            var userinput = document.getElementsByTagName("input")[0].value;
+            
+
+            var td1 = document.createElement("td");
+            td1.innerText = i;
+            tr.append(td1);
+
+            var td2 = document.createElement("td");
+            td2.innerText = userinput ;
+            tr.append(td2);
+
+            tbody.append(tr);
+
+        }
+
+
+        function Counter() {
+            c = document.getElementsByTagName("p")[0];
+            c.innerHTML ="Count is: "+ i;
+
+        }
+
+    </script>
+    
+</body>
+</html>

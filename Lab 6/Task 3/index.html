@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>Task 3</title>
+    <style>
+        #image{
+            width:500px;
+            text-align:center;
+           margin:10px auto;
+        }
+        #button{
+            width:500px;
+            text-align:center;
+            padding:10px;
+            margin:10px auto;
+           
+        }
+        button{
+            width:70px;
+            border-radius:5px; 
+           font:bold 13px tahoma;
+           outline:none;
+           border:none;
+           padding:5px;
+           margin:10px;
+           background-color:rgb(64, 29, 201);
+        }
+        button:focus{
+            background-color:rgb(154, 29, 48);
+        }
+        img{
+            width:350px;
+            height:350px;
+            border: 5px solid rgb(64, 29, 201);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; border: 1px solid ; ">Slide Show</h1>
+
+    <div id="image">
+        <img src="8.jpg" id="myimg"/>
+    </div>
+    <div id="button">
+        <button onclick="nextfun();">"<"</button>
+        <button onclick="startshow()">play</button>
+        <button onclick="stopshow()">Stop</button>
+        <button onclick="prevfun();">">"</button>
+    </div>
+    <script>
+        var imgsarray = ["8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.jpg"];
+        i = 0;
+        function nextfun() {
+            i++;
+            if (i >= imgsarray.length) i = 0;
+            myimg.src= imgsarray[i];
+        }
+        function prevfun() {
+            i--;
+            if (i < 0) i = imgsarray.length-1;
+            myimg.src = imgsarray[i];
+        }
+        function startshow() {
+            t=setInterval('nextfun()', 1000);
+        }
+        function stopshow() {
+            clearInterval(t);
+        }
+    </script>
+
+</body>
+</html>

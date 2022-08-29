@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Task 3js</title>
+    </head>
+    <body>
+        <script>
+            function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;}
+        var colorsarray = ["red", "green", "blue", "yellow", "magenta", "black", "gray", "orange", "cyan", "lightgreen", "lightpink"];
+        console.log(colorsarray[ getRndInteger(0, colorsarray.length - 1)]);
+        document.body.style.backgroundColor = colorsarray[getRndInteger(0, colorsarray.length - 1)];
+
+        </script>
+    </body>
+</html>
